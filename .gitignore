@@ -1,0 +1,17 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables / secrets
+.env
+
+# Jupyter Notebook autosaves
+.ipynb_checkpoints/
+
+# OS junk files
+.DS_Store
+Thumbs.db
