@@ -1,0 +1,37 @@
+
+from collections import OrderedDict
+import os
+os.chdir(os.path.dirname(__file__)) #Have the alpha file in the same folder
+
+def w_pattern(word):
+    word = word.strip().lower()
+    mapping = {}
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    index = 0
+    pattern = ""
+
+    for char in word:
+        if char not in mapping:
+            mapping[char] = alphabet[index]
+            index += 1
+        pattern = pattern + mapping[char]
+
+    return pattern
+
+input_word = input("Enter word: ")
+input_pattern = w_pattern(input_word)
+
+matches = []
+open("words_alpha.txt")
+
+with open("words_alpha.txt") as f:
+    for line in f:
+        w = line.strip()
+        if len(w) == len(input_word):
+            if w_pattern(w) == input_pattern:
+                matches.append(w)
+
+
+print("Matches:", len(matches))
+for w in matches:
+    print(w)
